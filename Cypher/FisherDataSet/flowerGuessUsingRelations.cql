@@ -25,11 +25,11 @@ RETURN thisFlower , answerFlower;
 
 // if virginica
 MATCH (node: Flower) 
-WHERE node.petalWidth < 1.6 AND node.aGuess <> "setosa"
+WHERE node.petalWidth > 1.6 AND node.aGuess <> "setosa"
 SET node.aGuess = "virginica";
 
 MATCH (thisFlower:Flower) , (answerFlower:Virginica)
-WHERE thisFlower.petalWidth < 1.6 AND thisFlower.aGuess <> "setosa"
+WHERE thisFlower.petalWidth > 1.6 AND thisFlower.aGuess <> "setosa"
 CREATE (thisFlower)-[: Guessed]->(answerFlower) 
 RETURN thisFlower , answerFlower;
 
@@ -44,4 +44,23 @@ CREATE (thisFlower)-[: Guessed]->(answerFlower)
 RETURN thisFlower , answerFlower;
 
 /////// ACTUAL SECTION
+MATCH (thisFlower) ,(answerFlower:Setosa)
+WHERE thisFlower.species = "setosa"
+CREATE (thisFlower)-[: Correct]->(answerFlower) 
+RETURN thisFlower , answerFlower;
+        
+MATCH (thisFlower) ,(answerFlower:Virginica)
+WHERE thisFlower.species = "virginica"
+CREATE (thisFlower)-[: Correct]->(answerFlower) 
+RETURN thisFlower , answerFlower;
+        
+MATCH (thisFlower) ,(answerFlower:Versicolor)
+WHERE thisFlower.species = "versicolor"
+CREATE (thisFlower)-[: Correct]->(answerFlower) 
+RETURN thisFlower , answerFlower;
 
+        
+//////// ANALYSIS
+MATCH (thisFlower) 
+WHERE thisFlower.species <> thisFlower.aGuess
+RETURN thisFlower, count(*) ;
