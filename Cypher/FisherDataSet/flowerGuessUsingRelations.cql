@@ -1,8 +1,11 @@
 //hw2
+
+///////////////// DATA Init
 // Delete all
 MATCH(n)
 DETACH DELETE n;
 
+// LOAD DATA
 LOAD CSV WITH HEADERS FROM 'file:///iris.csv'AS line
 CREATE (:Flower { sepalLength: toFloat(line.SepalLength), sepalWidth: toFloat(line.SepalWidth), petalLength: toFloat(line.PetalLength),
  petalWidth: toFloat(line.PetalWidth), species: line.Species, cluster: line.cluster, aGuess: 'noGuessMade'});
