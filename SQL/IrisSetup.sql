@@ -1,3 +1,5 @@
+-- The purpose of this script is to create a data table named iris based off of the Fisher data set
+
 CREATE TABLE iris (
 SepalLength REAL,
 SepalWidth REAL,
