@@ -12,7 +12,7 @@ This repo will hold the code of David Vadnais, Bder Khan, and Frank Torres for D
 Project uses
 * PostgreSQL: 11.9
 * Centos: 7
-* Neo4j: 
+* Neo4j: 4.1.3 CE
 
 ## Folder Organization 
 ### Cypher
