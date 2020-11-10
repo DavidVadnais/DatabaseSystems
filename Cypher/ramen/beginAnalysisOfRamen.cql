@@ -4,8 +4,8 @@ DETACH DELETE n;
 
 // SETUP
 LOAD CSV WITH HEADERS FROM 'file:///ramen-ratings.csv'AS line
-CREATE (:Ramen { Review: toFloat(line.Review), Brand: line.Brand , Variety: line.Variety, Country: line.Country ,Stars: toFloat(line.Stars),
-TopTen: line.TopTen});
+CREATE (:Ramen { Review: toInteger(line.Review), Brand: line.Brand , Variety: line.Variety, Country: line.Country ,Stars: toFloat(line.Stars),
+TopTen: line.TopTen, Style: line.Style});
 
 CREATE(:ZeroStar),
   (:OneStar),
