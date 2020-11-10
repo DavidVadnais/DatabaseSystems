@@ -6,3 +6,6 @@ RETURN  (a)-->();
 MATCH (a {Country: 'Japan'})
 RETURN  (a)-->();
        
+// showNodeAndConnections.cql
+MATCH (a:OneStar)<-[:NumStars]-(b)
+RETURN  a, b;
