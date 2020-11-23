@@ -2,12 +2,12 @@ MATCH p =(a:Ramen)
 WITH DISTINCT a.Brand AS thisBrand
 FOREACH (i IN thisBrand | CREATE (:Brand { Brand: i }));
 
-MATCH (a:Ramen), (b:Country)
-WHERE a.Country = b.Country
+MATCH (a:Ramen), (b:Brand)
+WHERE a.Brand = b.Brand
 CREATE (a)<-[:produces]-(b);
 
-MATCH (a:Ramen), (b:Country)
-WHERE a.Country = b.Country
+MATCH (a:Ramen), (b:Brand)
+WHERE a.Brand = b.Brand
 CREATE (a)-[:from]->(b);
                                   
 //
