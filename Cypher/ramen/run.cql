@@ -104,7 +104,7 @@ FOREACH (i IN thisCountry | CREATE (:Country { Country: i }));
 
 MATCH (a:Ramen), (b:Country)
 WHERE a.Country = b.Country
-CREATE (a)<-[:from]-(b)
+CREATE (a)<-[:from]-(b);
 
 // style
 
